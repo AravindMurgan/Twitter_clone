@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.sidebar__menu{
+    height: 100%;
+    margin-bottom: 25px;
+}
+
+.menu__option{
+    display: flex;
+}
+
+.menu__option > h3{
+    margin-left: 15px;
+}
+
+.menu__option:hover{
+    background-color:#1da0f22a ;
+    border-radius: 50px;
+    padding: 10px;
+    color: #1DA1F2;
+    width: 25px;
+}
