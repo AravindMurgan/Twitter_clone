@@ -2,4 +2,11 @@
      background-color: whitesmoke;
      width: 100%;
      padding: 20px;
+     border-bottom: 1px solid lightgray;
+}
+
+.feed__body:last-child{
+    border-bottom: none;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
