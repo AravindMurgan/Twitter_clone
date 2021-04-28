@@ -12,15 +12,19 @@
 .left__sidebar{
     display: flex;
     flex-direction: column;
-    flex: 0.5;
+    flex: 0.2;
     padding: 10px 60px;
+    height: 100vh;
 }
 
+
+
 .sidebar__menu > .tweet__btn{
-    margin-top: 15px;
+    margin-top: 10px;
+    width: 200px;
     padding: 12px;
     font-size: 16px;
-    font-weight: 800;
+    font-weight: 600;
    text-align: center;
    background-color:#1DA1F2 ;
    color: #fff;
@@ -29,12 +33,30 @@
    border-radius: 20px;
 }
 
+.tweet__btn:hover{
+    cursor: pointer;
+    background-color:#1398eb ;
+}
+
 .profile{
-    margin-top: 30px;
+    margin-top: 3.5rem;
     display: flex;
     align-items: center;
+    padding: 12px;
+}
+
+.profile:hover{
+
+    background-color: #1da0f211;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .profile .avatar__icon{
     margin-right: 10px;
+}
+
+.profile__name{
+    margin-right: 20px;
 }

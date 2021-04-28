@@ -44,6 +44,8 @@ function LeftSidebar() {
                 <b>Aravind Murugan</b>
 				<p>@Aravind261296</p>
                 </div>
+                
+                <MoreHorizIcon />
 				
 			</div>
 		</div>

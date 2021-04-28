@@ -6,6 +6,7 @@ function Sidebarmenu({ Icon, title }) {
 		<div className='icon__title'>
 			{<Icon />}
 			<h3>{title}</h3>
+			
 		</div>
 	);
 }

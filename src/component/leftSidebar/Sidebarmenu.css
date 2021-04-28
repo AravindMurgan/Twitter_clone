@@ -7,7 +7,7 @@
 .icon__title{
     display: flex;
     padding: 10px;
-    height: 100%;
+    max-width:200px
 }
 
 .icon__title > h3{
@@ -16,8 +16,9 @@
 }
 
 .icon__title:hover{
-    background-color: #1da0f25d;
+    background-color: #1da0f211;
     border-radius: 9999px;
     color: #1DA1F2;
     cursor: pointer;
+    transition: 0.3s;
 }
