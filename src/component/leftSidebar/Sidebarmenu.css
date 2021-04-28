@@ -4,26 +4,21 @@
     box-sizing: border-box;
 }
 
-.sidebar__menu{
-    height: 100%;
-    margin-bottom: 25px;
-    width: 300px;
-}
-
-.menu__option{
+.icon__title{
     display: flex;
-    align-items: center;
+    padding: 10px;
+    height: 100%;
+    border: 2px solid whitesmoke;
 }
 
-.menu__option > h3{
+.icon__title > h3{
     margin-left: 15px;
-    transition-duration: 0.5s;
+ 
 }
 
-.menu__option:hover{
-   
-    border-radius: 50px;
-    padding: 12px;
+.icon__title:hover{
+    background-color: #1da0f25d;
+    border-radius: 9999px;
     color: #1DA1F2;
     cursor: pointer;
 }

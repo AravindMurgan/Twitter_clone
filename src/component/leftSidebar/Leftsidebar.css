@@ -12,7 +12,29 @@
 .left__sidebar{
     display: flex;
     flex-direction: column;
-    flex: 0.2;
+    flex: 0.5;
     padding: 10px 60px;
 }
 
+.sidebar__menu > .tweet__btn{
+    margin-top: 15px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 800;
+   text-align: center;
+   background-color:#1DA1F2 ;
+   color: #fff;
+   outline: none;
+   border: none;
+   border-radius: 20px;
+}
+
+.profile{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.profile .avatar__icon{
+    margin-right: 5px;
+}
