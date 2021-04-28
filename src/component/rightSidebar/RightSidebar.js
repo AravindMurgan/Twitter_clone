@@ -11,13 +11,12 @@ function RightSidebar() {
 				<input className='search__button' type='text' placeholder='Search...' />
 			</header>
 
-			<div className='news__feed'>
-				<div className='header'>
-					<h2>Whats Happenging</h2>
-				</div>
+	
+				<header className='title' >
+					<h2>What's Happening</h2>
+				</header>
 
-				<RightSidebarOption />
-			</div>
+				<RightSidebarOption title='COVID-19 LIVE' body="COVID-19 SOS: Here's a list of resources" tweets='27.9K Tweets'   />
 		</div>
 	);
 }

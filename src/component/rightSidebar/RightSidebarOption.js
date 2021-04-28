@@ -1,13 +1,13 @@
 import React from 'react';
 import './RightSidebarOption.css';
 
-function RightSidebarOption() {
+function RightSidebarOption({title,body,tweets}) {
 	return (
 		<div className='feed__body'>
 			<div className='feed__description  '>
-				<small></small>
-				<h3></h3>
-                <small></small>
+				<small> {title} </small>
+				<h4>{body} </h4>
+                <small>{tweets} </small>
 			</div>
             
 
