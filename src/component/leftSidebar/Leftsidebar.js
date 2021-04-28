@@ -40,8 +40,11 @@ function LeftSidebar() {
 					<Avatar />
 				</div>
 
-				<b>Aravind Murugan</b>
+                <div className="profile__name">
+                <b>Aravind Murugan</b>
 				<p>@Aravind261296</p>
+                </div>
+				
 			</div>
 		</div>
 	);
