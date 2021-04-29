@@ -3,15 +3,10 @@ import React from 'react';
 import './FeedBar.css';
 
 function FeedBar({ Icon }) {
-
 	return (
-        <div className="icon" style={{display:'flex',marginRight:'8px'}} >
-            <Icon style={{ color: blue[500] }} />
-    </div>
-
-    )
-    
-    ;
+	
+			<Icon style={{ color: blue[500] }} />
+	);
 }
 
 export default FeedBar;

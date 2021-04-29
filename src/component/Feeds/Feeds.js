@@ -36,7 +36,7 @@ function Feeds() {
 				
 
 				<div className='tweet__button'>
-					<button>Tweet</button>
+					<button >Tweet</button>
 				</div>
 			</div>
 		</header>
