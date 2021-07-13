@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { auth } from '../Firebase/firebase';
 import './Login.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function Login() {
@@ -14,15 +16,19 @@ function Login() {
 
     const loginToApp=(e)=>{
         e.preventDefault();
-        auth
-    }
-
-    const register=()=>{
         
     }
 
+    const register=()=>{
+        if(!name){
+            toast.error('Please Enter the name',{autoClose: 3000,})
+        }
+    }
+
 	return (
+
 		<div className='login'>
+            <ToastContainer />
 			<img
 					src='https://cdn.usbrandcolors.com/images/logos/twitter-logo.svg'
 					className='twitter__logo'
