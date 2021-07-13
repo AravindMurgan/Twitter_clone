@@ -1,25 +1,31 @@
 import React from 'react';
-import LeftSidebar from './component/leftSidebar/Leftsidebar';
-import './App.css'
+import { useSelector } from 'react-redux';
+import './App.css';
 import Feeds from './component/Feeds/Feeds';
+import LeftSidebar from './component/leftSidebar/Leftsidebar';
+import Login from './component/Login/Login';
 import RightSidebar from './component/rightSidebar/RightSidebar';
 
 function App() {
+	const user = useSelector((state) => state.user);
 	return (
-		<div className='app'>
-			{/* LeftSideBar */}
-			<LeftSidebar />
+		<div>
+			{!user ? (
+				<Login />
+			) : (
+				<div className='app'>
+					{/* LeftSideBar */}
+					<LeftSidebar />
 
-			{/* Feeds */}
-			<Feeds />
+					{/* Feeds */}
+					<Feeds />
 
-			{/* RightSidebar */}
-			<RightSidebar />
+					{/* RightSidebar */}
+					<RightSidebar />
+				</div>
+			)}
 		</div>
 	);
 }
 
 export default App;
-
-
-
