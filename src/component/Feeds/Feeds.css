@@ -29,7 +29,7 @@
   
 }
 
-.feed__tweet >  input{
+.feed__tweet >  form > input{
     margin-left: 5px;
     padding: 10px;
     background-color: transparent;
@@ -49,17 +49,11 @@
     
 }
 
-.media__icons > *{
-    margin-right: 10px;
-
+.media__icons{
+    display: flex;
 }
 
 
-.media__icons:hover{
-
-    background-color: #1da0f211;
-    border-radius: 999px;
-}
 
 .tweet__button > button{
     padding: 13px 20px;

@@ -9,7 +9,14 @@ import ScheduleIcon from '@material-ui/icons/Schedule';
 import React from 'react';
 import FeedBar from './FeedBar';
 import './Feeds.css';
+import Posts from './Posts/Posts'
 function Feeds() {
+
+	const handleSubmit=(e)=>{
+		e.preventDefault();
+		console.log(e.target.value);
+	}
+
 	return (
 		<header className='feed'>
 			<div className='feed__title'>
@@ -22,7 +29,10 @@ function Feeds() {
 
 			<div className='feed__tweet'>
 				<Avatar />
-				<input type='text' placeholder='Whats happening?' />
+				<form onSubmit={handleSubmit} >
+					<input type="text" placeholder='Whats happening' />
+					
+				</form>
 			</div>
 
 			<div className='feed__icons'>
@@ -38,6 +48,10 @@ function Feeds() {
 				<div className='tweet__button'>
 					<button >Tweet</button>
 				</div>
+			</div>
+
+			<div className='twitter__posts' >
+				<Posts />
 			</div>
 		</header>
 	);

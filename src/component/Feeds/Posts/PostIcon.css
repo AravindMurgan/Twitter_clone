@@ -1,5 +1,5 @@
 
-.icons{
+.post__icons{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -9,8 +9,7 @@
     margin-right: 5px;
 }
 
-.icons:hover{
-    background-color: #1da0f211;
-   
-
+.post__number{
+    font-size: 14px;
+    margin-left: 20px;
 }
