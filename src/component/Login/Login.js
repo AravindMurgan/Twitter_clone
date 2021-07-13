@@ -1,39 +1,71 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { login } from '../../features/userSlice';
 import { auth } from '../Firebase/firebase';
 import './Login.css';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
 
 function Login() {
-
-    const [name, setName] = useState('');
+	const [name, setName] = useState('');
 	const [profilePic, setProfilepic] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const dispatch = useDispatch();
 
-    const loginToApp=(e)=>{
-        e.preventDefault();
-        
-    }
+	const loginToApp = (e) => {
+		e.preventDefault();
+        auth.signInWithEmailAndPassword(email,password)
+        .then(userAuth=>{
+            dispatch(login({
+                email:userAuth.user.email,
+                uid:userAuth.user.uid,
+                displayName:userAuth.user.displayName,
+                profileUrl:userAuth.user.photoURL
+            }))
+        })
+        .catch((err)=>{
+            toast.error('Login failed')
+            console.log(err.message);
+        })
+	};
 
-    const register=()=>{
-        if(!name){
-            toast.error('Please Enter the name',{autoClose: 3000,})
-        }
-    }
+	const register = () => {
+		if (!name) {
+			toast.error('Please Enter the name', { autoClose: 3000 });
+		}
+
+		auth.createUserWithEmailAndPassword(email, password).then((userAuth) => {
+			userAuth.user
+				.updateProfile({
+					displayName: name,
+					photoURL: profilePic,
+				})
+				.then(() => {
+					dispatch(
+						login({
+							email: userAuth.user.email,
+							uid: userAuth.user.uid,
+                            displayName:name,
+                            photoUrl:profilePic
+						})
+					);
+				});
+		})
+        .catch((err)=>{
+            toast.error('Registration failed')
+            console.log(err.message);
+        })
+	};
 
 	return (
-
 		<div className='login'>
-            <ToastContainer />
+			<ToastContainer />
 			<img
-					src='https://cdn.usbrandcolors.com/images/logos/twitter-logo.svg'
-					className='twitter__logo'
-					alt=''
-				/>
+				src='https://cdn.usbrandcolors.com/images/logos/twitter-logo.svg'
+				className='twitter__logo'
+				alt=''
+			/>
 
 			<form>
 				<input

@@ -8,10 +8,19 @@ import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import PersonIcon from '@material-ui/icons/Person';
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout, selectUser } from '../../features/userSlice';
+import { auth } from '../Firebase/firebase';
 import './Leftsidebar.css';
 import Sidebarmenu from './Sidebarmenu';
 
 function LeftSidebar() {
+	const dispatch = useDispatch();
+	const user = useSelector(selectUser);
+	const onClick=()=>{
+		dispatch(logout());
+		auth.signOut();
+	}
 	return (
 		<div className='left__sidebar'>
 			<div className='logo'>
@@ -37,15 +46,18 @@ function LeftSidebar() {
 
 			<div className='profile'>
 				<div className='avatar__icon'>
-					<Avatar />
+					<Avatar src={user.photoUrl}>{user.email[0]} </Avatar>
 				</div>
 
                 <div className="profile__name">
-                <b>Aravind Murugan</b>
-				<p>@Aravind261296</p>
+                <b>{user.displayName} </b>
+				<p>{user.email} </p>
                 </div>
                 
-                <MoreHorizIcon />
+				<div onClick={onClick} >
+				<MoreHorizIcon />
+				</div>
+                
 				
 			</div>
 		</div>
