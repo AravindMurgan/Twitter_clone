@@ -7,7 +7,7 @@ import Login from './component/Login/Login';
 import RightSidebar from './component/rightSidebar/RightSidebar';
 
 function App() {
-	const user = useSelector((state) => state.user);
+	const user = useSelector((state) => state.user.user);
 	return (
 		<div>
 			{!user ? (
