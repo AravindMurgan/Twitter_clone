@@ -10,12 +10,12 @@ import PostIcon from './PostIcon';
 const Posts = forwardRef( ({ name, description, photoUrl, message,email },ref) => {
 	return (
 		<div >
-			<div  ref={ref} className='post'>
+		<div  ref={ref} className='post'>
 				<div className='post__header'>
-                <Avatar />
+					<Avatar src={photoUrl}> {description[0]} </Avatar>
 					<div className='post__info'>
-						<h3> Posts</h3>
-						<p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque aspernatur iste quaerat aperiam soluta beatae dolor placeat natus quam eveniet. </p>
+						<h3> {name} </h3>
+						<p> {description} </p>
 					</div>
 				</div>
 				<div className='post__body'>
