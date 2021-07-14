@@ -7,7 +7,7 @@ import React,{forwardRef} from 'react';
 import './Posts.css';
 import PostIcon from './PostIcon';
 
-const Posts = forwardRef( ({ name, description, photoUrl, message,email },ref) => {
+const Posts = forwardRef( ({ name, description, photoUrl, message },ref) => {
 	return (
 		<div >
 		<div  ref={ref} className='post'>

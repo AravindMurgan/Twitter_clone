@@ -17,10 +17,10 @@ import Sidebarmenu from './Sidebarmenu';
 function LeftSidebar() {
 	const dispatch = useDispatch();
 	const user = useSelector(selectUser);
-	const onClick=()=>{
+	const onClick = () => {
 		dispatch(logout());
 		auth.signOut();
-	}
+	};
 	return (
 		<div className='left__sidebar'>
 			<div className='logo'>
@@ -49,16 +49,14 @@ function LeftSidebar() {
 					<Avatar src={user.photoUrl}>{user.email[0]} </Avatar>
 				</div>
 
-                <div className="profile__name">
-                <b>{user.displayName} </b>
-				<p>{user.email} </p>
-                </div>
-                
-				<div onClick={onClick} >
-				<MoreHorizIcon />
+				<div className='profile__name'>
+					<b>{user.displayName} </b>
+					<p>{user.email} </p>
 				</div>
-                
-				
+
+				<div onClick={onClick}>
+					<MoreHorizIcon />
+				</div>
 			</div>
 		</div>
 	);
