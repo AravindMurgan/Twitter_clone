@@ -8,21 +8,19 @@ import PollIcon from '@material-ui/icons/PollOutlined';
 import ScheduleIcon from '@material-ui/icons/Schedule';
 import firebase from 'firebase';
 import React, { useEffect, useState } from 'react';
-import FlipMove from 'react-flip-move';
-import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../features/userSlice';
 import { db } from '../Firebase/firebase';
 import FeedBar from './FeedBar';
 import './Feeds.css';
 import Posts from './Posts/Posts';
+import FlipMove from 'react-flip-move';
 
 function Feeds() {
 	const [input, setInput] = useState('');
 	const [posts, setPosts] = useState([]);
 
 	const user = useSelector(selectUser);
-	const { handleSubmit } = useForm();
 
 	useEffect(() => {
 		db.collection('posts')
@@ -37,8 +35,8 @@ function Feeds() {
 			);
 	}, []);
 
-	const onSubmit = () => {
-		
+	const handleSubmit = (e) => {
+		e.preventDefault();
 
 		db.collection('posts').add({
 			name: user.displayName,
@@ -62,9 +60,9 @@ function Feeds() {
 			</div>
 
 			<div className='feed__tweet'>
-				<Avatar src={user.photoUrl}> {user.email[0]} </Avatar>
-
-				<form id='hook-from' onSubmit={handleSubmit(onSubmit)}>
+					<Avatar src={user.photoUrl}> {user.email[0]} </Avatar>
+				
+				<form onSubmit={handleSubmit}>
 					<input
 						type='text'
 						placeholder='Whats happening'
@@ -84,27 +82,23 @@ function Feeds() {
 				</div>
 
 				<div className='tweet__button'>
-					<button form='hook-from' type='submit'>
-						Tweet
-					</button>
+					<button>Tweet</button>
 				</div>
 			</div>
 
-			<div className='background__color'></div>
+			<div className='background__color' ></div>
 
 			<div className='twitter__posts'>
 				<FlipMove>
-					{posts.map(
-						({ id, data: { name, description, message, photoUrl } }) => (
-							<Posts
-								key={id}
-								name={name}
-								description={description}
-								message={message}
-								photoUrl={photoUrl}
-							/>
-						)
-					)}
+				{posts.map(({ id, data: { name, description, message, photoUrl } }) => (
+					<Posts
+						key={id}
+						name={name}
+						description={description}
+						message={message}
+						photoUrl={photoUrl}
+					/>
+				))}
 				</FlipMove>
 			</div>
 		</header>
