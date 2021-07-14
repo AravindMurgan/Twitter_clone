@@ -8,13 +8,13 @@ import PollIcon from '@material-ui/icons/PollOutlined';
 import ScheduleIcon from '@material-ui/icons/Schedule';
 import firebase from 'firebase';
 import React, { useEffect, useState } from 'react';
+import FlipMove from 'react-flip-move';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../features/userSlice';
 import { db } from '../Firebase/firebase';
 import FeedBar from './FeedBar';
 import './Feeds.css';
 import Posts from './Posts/Posts';
-import FlipMove from 'react-flip-move';
 
 function Feeds() {
 	const [input, setInput] = useState('');
@@ -45,7 +45,6 @@ function Feeds() {
 			photoUrl: user.photoUrl || '',
 			timestamp: firebase.firestore.FieldValue.serverTimestamp(),
 		});
-		console.log(input);
 		setInput('');
 	};
 
@@ -60,8 +59,8 @@ function Feeds() {
 			</div>
 
 			<div className='feed__tweet'>
-					<Avatar src={user.photoUrl}> {user.email[0]} </Avatar>
-				
+				<Avatar src={user.photoUrl}> {user.email[0]} </Avatar>
+
 				<form onSubmit={handleSubmit}>
 					<input
 						type='text'
@@ -86,19 +85,27 @@ function Feeds() {
 				</div>
 			</div>
 
-			<div className='background__color' ></div>
+			<div className='background__color'></div>
 
 			<div className='twitter__posts'>
-				<FlipMove>
-				{posts.map(({ id, data: { name, description, message, photoUrl } }) => (
-					<Posts
-						key={id}
-						name={name}
-						description={description}
-						message={message}
-						photoUrl={photoUrl}
-					/>
-				))}
+				<FlipMove
+					duration={300}
+					easing='ease-out'
+					enterAnimation='fade'
+					leaveAnimation={null}
+					typeName={null}
+				>
+					{posts.map(
+						({ id, data: { name, description, message, photoUrl } }) => (
+							<Posts
+								key={id}
+								name={name}
+								description={description}
+								message={message}
+								photoUrl={photoUrl}
+							/>
+						)
+					)}
 				</FlipMove>
 			</div>
 		</header>

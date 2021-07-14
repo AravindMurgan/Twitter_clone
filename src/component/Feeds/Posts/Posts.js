@@ -34,3 +34,4 @@ const Posts = forwardRef(({ name, description, photoUrl, message }, ref) => {
 });
 
 export default Posts;
+
